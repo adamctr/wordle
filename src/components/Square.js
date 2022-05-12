@@ -1,7 +1,7 @@
 import React from "react";
 import { styled } from "@stitches/react";
 import Letter from "../Letter";
-import bounce from "../style/animations";
+import { bounce } from "../style/animations";
 
 const StyledSquare = styled("div", {
   height: "100%",

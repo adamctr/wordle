@@ -4,8 +4,10 @@ import { useReducer } from "react";
 import WordleContext, { initialState } from "./context/wordleContest";
 import { useEffect } from "react";
 import { wordReducer } from "./handlers/wordReducer";
+import Alertbox from "./components/Alertbox";
 
 const Container = styled("div", {
+  position: "relative",
   height: "100vh",
   width: "100vw",
   display: "flex",
@@ -23,16 +25,17 @@ function App() {
     const handleKeydown = (e) => {
       setWord(e.key);
     };
-
+    console.log(word);
     document.addEventListener("keydown", handleKeydown);
 
     return () => document.removeEventListener("keydown", handleKeydown);
-  }, []);
+  }, [word]);
 
   return (
     <WordleContext.Provider value={{ ...initialState, word }}>
       <Container>
         <Grids />
+        <Alertbox />
       </Container>
     </WordleContext.Provider>
   );
